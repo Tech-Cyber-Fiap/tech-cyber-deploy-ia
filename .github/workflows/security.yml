@@ -26,6 +26,7 @@ jobs:
           STACKSPOT_CLIENT_ID: ${{ secrets.STACKSPOT_CLIENT_ID }}
           STACKSPOT_CLIENT_SECRET: ${{ secrets.STACKSPOT_CLIENT_SECRET }}
           STACKSPOT_REALM: stackspot-freemium
+          STACKSPOT_CONVERSATION_ID: ${{ secrets.STACKSPOT_CONVERSATION_ID }}
         run: python stackspot_scan.py
 
       - name: Upload security report
