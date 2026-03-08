@@ -26,4 +26,13 @@ jobs:
           STACKSPOT_CLIENT_ID: ${{ secrets.STACKSPOT_CLIENT_ID }}
           STACKSPOT_CLIENT_SECRET: ${{ secrets.STACKSPOT_CLIENT_SECRET }}
           STACKSPOT_REALM: stackspot-freemium
+          STACKSPOT_CONVERSATION_ID: ${{ secrets.STACKSPOT_CONVERSATION_ID }}
         run: python stackspot_scan.py
+
+      - name: Upload report artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: stackspot-security-output
+          path: |
+            security_report.json
+            conversation_id.txt
