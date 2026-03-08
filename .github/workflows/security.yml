@@ -28,10 +28,16 @@ jobs:
           STACKSPOT_REALM: stackspot-freemium
         run: python stackspot_scan.py
 
-      - name: Upload report artifacts
+      - name: Upload security report
         uses: actions/upload-artifact@v4
         with:
-          name: stackspot-security-output
-          path: |
-            security_report.json
-            conversation_id.txt
+          name: security-report
+          path: security_report.json
+          if-no-files-found: warn
+
+      - name: Upload conversation id
+        uses: actions/upload-artifact@v4
+        with:
+          name: conversation-id
+          path: conversation_id.txt
+          if-no-files-found: warn
